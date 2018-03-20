@@ -17,6 +17,9 @@ public class node {
                 msg = "Passable";
             }
         }
+        else{
+            msg = "not 4 booleans!: ";
+        }
     }
     /*
     points is a list of the criterias in order: hand ins, attend lectures, read textbook & make exercises
@@ -42,16 +45,18 @@ public class node {
             }
         }
     }
-    public void print(int tree){
-        if(tree == 0 || data != null){
-            if(data == null){
-                data = new ArrayList();
-            }
+
+    // prints all data from all nodes recursively
+    public void print(){
+        if(data != null){
             System.out.println(msg+"  :  "+combo+" "+data.toString());
         }
+        if( data == null && yes == null){
+            System.out.println(msg+"  :  "+combo+" []");
+        }
         if(yes != null){
-            yes.print(tree-1);
-            no.print(tree-1);
+            yes.print();
+            no.print();
         }
     }
 }
